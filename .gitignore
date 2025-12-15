@@ -1,0 +1,70 @@
+# Logs
+frontend/logs
+frontend/*.log
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/lerna-debug.log*
+
+frontend/node_modules
+frontend/dist
+frontend/dist-ssr
+frontend/*.local
+
+# Editor directories and files
+frontend/.vscode/*
+frontend/!.vscode/extensions.json
+frontend/.idea
+frontend/.DS_Store
+frontend/*.suo
+frontend/*.ntvs*
+frontend/*.njsproj
+frontend/*.sln
+frontend/*.sw?
+
+
+# Python
+backend/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
+backend/*.so
+backend/.Python
+backend/venv/
+backend/env/
+backend/ENV/
+backend/.venv
+
+
+# Database
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+
+
+# Uploads
+backend/uploads/
+!backend/uploads/.gitkeep
+
+
+# IDE
+backend/.vscode/
+backend/.idea/
+backend/*.swp
+backend/*.swo
+
+
+# Environment
+backend/.env
+backend/.env.local
+
+
+# OS
+backend/.DS_Store
+backend/Thumbs.db
+
+frontend/README.md
+backend/README.md
+
+traning/
+backend/models
