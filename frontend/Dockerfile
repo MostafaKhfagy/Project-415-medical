@@ -1,9 +1,9 @@
 # Stage 1: Build with Vite
 FROM node:20-alpine AS builder
 WORKDIR /app
-COPY package*.json ./
+COPY frontend/package.json frontend/package-lock.json ./
 RUN npm install
-COPY . .
+COPY frontend .
 RUN npm run build
 
 # Stage 2: Serve with Nginx
