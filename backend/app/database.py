@@ -1,44 +1,19 @@
-"""
-Database configuration and session management.
-This file sets up SQLAlchemy to work with SQLite database.
-"""
-
+import os
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, declarative_base
 
-# SQLite database file path
-SQLALCHEMY_DATABASE_URL = "sqlite:///./smart_triage.db"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-# Create database engine
-# connect_args needed for SQLite to allow multiple threads
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
-)
+if not DATABASE_URL:
+    raise RuntimeError("DATABASE_URL environment variable is required")
 
-# Session factory - used to create database sessions
+engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-# Base class for all database models
 Base = declarative_base()
 
-
 def get_db():
-    """
-    Dependency function to get database session.
-    FastAPI will call this to inject a database session into route handlers.
-    """
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
-
-
-
-
-
-
-
-
-
